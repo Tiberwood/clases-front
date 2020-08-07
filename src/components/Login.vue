@@ -45,6 +45,10 @@ export default {
     },
     /* Declaramos nuestras variables */
     data: () => ({
+        headers: {
+            'Access-Control-Allow-Headers': 'origin',
+            'Access-Control-Allow-Credentials': 'true',
+        },
         show1: false,
         name: '',
         email: '',
@@ -80,8 +84,12 @@ export default {
     /* Métodos */
     methods: {
         login: function() {
-            this.$http.post('http://localhost:8000/auth/login', this.user.username, this.user.password)
+            this.$http.post('http://localhost:8000/auth/login/', this.user, this.headers)
                 .then(response => {
+                    if(response.status == 200){
+                        localStorage.setItem('userKey', JSON.stringify(response.data));
+                        this.$router.push('Home');
+                    }
                     console.log('response', response);
                 }).catch((error) =>{
                     console.error('error', error);
