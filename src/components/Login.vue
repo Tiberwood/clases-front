@@ -6,22 +6,22 @@
         >
             <form>
                 <v-text-field
-                v-model="user.username"
-                :error-messages="usernameErrors"
-                :counter="10"
-                label="Name"
-                required
-                @input="$v.user.username.$touch()"
-                @blur="$v.user.username.$touch()"
+                    v-model="user.username"
+                    :error-messages="usernameErrors"
+                    :counter="10"
+                    label="Name"
+                    required
+                    @input="$v.user.username.$touch()"
+                    @blur="$v.user.username.$touch()"
                 ></v-text-field>
                 <v-text-field
-                v-model="user.password"
-                :error-messages="passwordErrors"
-                label="Password"
-                :type="show1 ? 'text' : 'password'"
-                required
-                @input="$v.user.password.$touch()"
-                @blur="$v.user.password.$touch()"
+                    v-model="user.password"
+                    :error-messages="passwordErrors"
+                    label="Password"
+                    :type="show1 ? 'text' : 'password'"
+                    required
+                    @input="$v.user.password.$touch()"
+                    @blur="$v.user.password.$touch()"
                 ></v-text-field>
                 <v-btn class="mr-4" @click="login()">Login</v-btn>
                 <v-btn @click="clear">clear</v-btn>
@@ -50,8 +50,6 @@ export default {
             'Access-Control-Allow-Credentials': 'true',
         },
         show1: false,
-        name: '',
-        email: '',
         select: null,
         items: [
             'Item 1',
